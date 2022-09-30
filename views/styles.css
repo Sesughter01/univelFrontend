@@ -1,0 +1,480 @@
+/*CSS IS CASCADING STYLE SHEETS*/
+/* CSS SELECTORS */
+
+/* UNIVERSAL styles */
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap');
+*{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Epilogue', sans-serif;
+
+}
+:root{
+    /* COLORS */
+  --almost_white: hsl(0, 0%, 98%);
+  --medium_gray:hsl(0, 0%, 41%);
+  --almost_black:hsl(0, 0%, 8%);
+
+}
+/* BODY STYLES START */
+html
+{
+   font-size: 18px;
+   height: 100vh;
+}
+ body{
+   font-size: 18px;
+   height: 90%;
+} 
+/* HEADER STYLES */
+
+.mobileHeader{
+    
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 16px;
+   
+}
+/* Input tag styles */
+
+.mobileHeader #menutoggle{
+  display: none;
+}
+
+/* hamburger container styles */
+
+.mobileHeader .menuButtonContainer{
+    display: flex;
+    height: 100%;
+    width: 30px;
+    cursor: pointer;
+    flex-direction: column;
+   justify-content: center;
+   align-items: center;
+  
+}
+/* Hamburger design styles */
+.mobileHeader .menuButtonContainer .menubutton,
+.menubutton::before,
+.menubutton::after{
+    display: block;
+    height: 4px;
+    width: 30px;
+    background-color: #000;
+    position: absolute;
+    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    z-index:1000;
+}
+.menubutton::before{
+    content: "";
+    margin-block-start: -8px;
+}
+.menubutton::after{
+    content: "";
+    margin-block-start: 8px;
+}
+
+  /* INACTIVE STATES */
+  /* Navigation bar on Mobile Devices */
+  .mobileHeader #menutoggle ~ .nav {
+    background-color:rgba(0, 0, 0, 0.5);
+    left:0;
+    position:fixed;
+    right:0;
+    top:0;
+    padding-inline:1rem;
+    bottom: 0;
+    color: rgb(29, 27, 27);
+    transform: translateX(120%);
+    transition: transform 500ms cubic-bezier(0.5,0,0.5,1);
+    z-index: 10;
+    
+    
+}
+.mobileHeader #menutoggle ~  .nav .menu{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: start;
+    left: 35%;
+    padding-block-start: 5rem;
+    padding-inline-start: 1rem;
+    background-color: var(--almost_white);
+    /* transition: transform 400ms ease-in-out; */
+
+}
+
+.mobileHeader .nav .menu{
+   
+    /* transform: translateX(100%); */
+    list-style: none;
+    
+}
+.mobileHeader #menutoggle ~ .nav .menu>li{
+   
+    padding-block: 0.7rem;
+    
+}
+.mobileHeader #menutoggle ~ .nav .menu>li>a{
+   
+    color: var(--medium_gray);
+    padding-inline: 0.7rem;
+    
+}
+.navItem .navlink + .sublist{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    height: 0px;
+    overflow: hidden;
+    
+    transition:height 1000ms ease-in-out ;
+}
+.navItem .navlink + .sublist .sublink{
+    display: flex;
+    justify-content: center;
+    align-items: center;gap: 1rem;
+    padding-inline-start: 1.5rem;
+    color: var(--medium_gray);
+}
+.navItem .navlink + .sublist .sublink .material-icons{
+   
+    /* color: yellow; */
+}
+
+a{
+    color: var(--medium_gray);
+    text-decoration: none;
+    color: #151617;
+    font-size: 1rem;
+}
+.desktop.loginReg{
+    display: none;
+}
+.mobileHeader .nav .mobile.loginReg{
+    display: block;
+    position: relative;
+    margin: 10% auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.mobileHeader .nav .mobile.loginReg a{
+    color: var(--medium_gray);
+    text-align: center;
+    text-decoration: none;
+    
+   
+}
+.mobileHeader .nav .mobile.loginReg a:nth-child(2){
+    /* width: 100%; */
+    border: 1px solid var(--medium_gray);
+   border-radius: 15px;
+   padding-block: 1rem;
+   padding-inline: 4rem;
+}
+
+
+/* ACTIVE */
+/* ACTIVE HAMBURGER BUTTON STATES STYLES */
+
+#menutoggle:checked + .menuButtonContainer .menubutton::before{
+    margin-block-start: 0;
+    transform:rotate(-405deg) ;
+  
+  }
+#menutoggle:checked + .menuButtonContainer .menubutton{
+    background-color: rgba(255,255,255,0);
+  
+  }
+#menutoggle:checked + .menuButtonContainer .menubutton::after{
+    margin-block-start: 0;
+    transform:rotate(405deg) ;
+  
+  }
+/* ACTIVE MENU */
+.mobileHeader #menutoggle:checked ~ .nav{
+   
+    transform: translateX(0%);
+  
+    
+}
+ .mobileHeader #menutoggle:checked ~ .nav .menu{
+     transform: translateX(0%); 
+}
+/* ACTIVE SUB MENU STYLES */
+.nav .menu .navItem:hover .navlink + .sublist{
+   height: max-content;
+   /* transition: height 500ms ease-in-out; */
+}
+.nav .menu .sublist .sublink{
+    padding-block: 0.8rem;
+    
+}
+.nav .menu .navItem:hover .navlink + .sublist .sublink:not(:last-child){
+   /* border-bottom: 1px solid var(--medium_gray); */
+    
+}
+.nav .menu .navItem:hover .navlink  span i{
+   transform: rotate(180deg);
+   transition: transform 500ms ease-in-out;
+    
+}
+/* MAIN SECTION STYLES */
+
+.main {
+    height: 100%;
+
+}
+.main .mainSection {
+    display: flex;
+    flex-direction: column;
+    /* gap: 1rem; */
+    align-items: center;
+    height: 65%;
+    margin-block-end: 2rem;
+}
+.main .mainSection .image{
+    padding: 10rem;
+    width:100%;
+    height: 50%;
+    background-image: url(../assets/images/image-hero-mobile.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+    
+
+}
+
+
+.main .mainSection .textContent{
+    width:100%;
+    height: 50%;
+    text-align: center;
+    font-family: 'Epilogue', sans-serif;
+    padding-block-start: 1rem;
+    padding-block-end: 2rem;
+
+}
+.main .mainSection .textContent h1{
+    margin-block: 1rem;
+   font-size: 2rem;
+   font-weight: 700;
+    
+
+}
+.main .mainSection .textContent p{
+    margin-block: 1rem;
+    font-weight: 500;
+   font-size: 1rem;
+   padding: 1rem ;
+   color: var(--medium_gray);
+
+}
+
+.main .mainSection .textContent a{
+    margin-block: 2rem;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    background-color: var(--almost_black);
+    color: var(--almost_white);
+
+}
+.main .footer{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   /* gap: rem; */
+}
+.main .footer img{
+   display: inline-block;
+   margin :0 auto;
+   width:4.5rem;
+   
+}
+/* MEDIA QUERIES BELOW */
+
+@media (min-width:400px){
+    .main .mainSection .image{
+        
+        background-size: cover; /* This makes the hero image responsive on mobile and tablet*/
+        
+    
+    }
+    
+}
+@media (min-width:768px){
+
+    .mobileHeader{
+     justify-content:safe;
+        /* display: flex;
+        align-items: center;
+        padding: 16px;
+         */
+     }
+    .mobileHeader .logo{
+    
+      
+        
+     }
+
+    .mobileHeader .menuButtonContainer{
+        display: none;
+       
+      
+    }
+    .mobileHeader #menutoggle ~ .nav {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        background-color:initial;
+        position:initial;
+        padding-inline:1rem;
+        margin-inline-start: 1rem;
+        color: var(--medium_gray);
+        transform: translateX(0%);
+        
+        
+    }
+
+    .mobileHeader #menutoggle ~  .nav .menu{
+        position: static;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-block-start: 0;
+        padding-inline-start: 1rem;
+        background-color: transparent;
+    
+    
+    }
+    .navItem .navlink + .sublist{
+        position: absolute;
+        
+      
+    }
+    .navItem .navlink + .sublist .sublink{
+        /* display: flex;
+        justify-content: center;
+        align-items: center;gap: 1rem;
+        padding-inline-start: 1.5rem;
+        color: var(--medium_gray); */
+    }
+    .mobileHeader .nav .mobile.loginReg{
+        display: none;
+        
+    }
+    
+    .mobileHeader  .desktop.loginReg{
+        display: initial;
+        /* position:inherit; */
+        margin-inline-end: 0;
+        margin-inline-start: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+    .mobileHeader  .desktop.loginReg a{
+        color: var(--medium_gray);
+        text-align: center;
+        text-decoration: none;
+        font-size: 1rem; 
+       
+    }
+    .mobileHeader  .desktop.loginReg a:nth-child(2){
+        width: 100%;
+        border: 1px solid var(--medium_gray);
+       border-radius: 15px;
+       padding-block: 1em;
+       padding-inline: 2.5em;
+    }
+    
+    /* MAIN SECTION DESKTOP STYLES */
+    .main .mainSection {
+        /* display: flex; */
+        flex-direction: row;
+        /* gap: 1rem; */
+        /* align-items: center; */
+        height: 100%;
+        /* margin-block-end: 2rem; */
+         margin-inline: 4rem; 
+
+    }
+    
+    .main .mainSection .image{
+        order: 2;
+        /* padding: 10rem; */
+        /* width:100%; */
+        height: 100%;
+        /* background-image: url(../assets/images/image-hero-mobile.png); */
+        /* background-size: contain; */
+        /* background-repeat: no-repeat; */
+        
+        
+    
+    }
+    
+    
+    .main .mainSection .textContent{
+        /* width:100%;
+        height: 50%;
+        text-align: center;
+        font-family: 'Epilogue', sans-serif;
+        padding-block-start: 1rem;
+        padding-block-end: 2rem; */
+    
+    }
+    .main .mainSection .textContent h1{
+        /* margin-block: 1rem;
+       font-size: 2rem;
+       font-weight: 700;
+         */
+    
+    }
+    .main .mainSection .textContent p{
+        /* margin-block: 1rem;
+        font-weight: 500;
+       font-size: 1rem;
+       padding: 1rem ;
+       color: var(--medium_gray); */
+    
+    }
+    
+    .main .mainSection .textContent a{
+        /* margin-block: 2rem;
+        padding: 1rem 1.5rem;
+        border-radius: 10px;
+        background-color: var(--almost_black);
+        color: var(--almost_white);
+     */
+    }
+    .main .footer{
+       /* display: flex;
+       justify-content: center;
+       align-items: center; */
+       /* gap: rem; */
+    }
+    .main .footer img{
+       /* display: inline-block;
+       margin :0 auto;
+       width:4.5rem; */
+       
+    }
+    
+    
+}
+
+
+ 

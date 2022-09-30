@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+    <title>CSS Selectors 1</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="main">
+        <header class="deskHeader mobileHeader">
+            <img class="logo" src="../assets/images/logo.svg" alt="logo" >
+            <input type="checkbox" id="menutoggle" >
+            <label for="menutoggle" class="menuButtonContainer">
+                <div class="menubutton"></div>
+            </label>
+            <nav class="nav ">
+                <ul class="menu">
+                    <li class="navItem"> 
+                        <a href="#" class="navlink">Features<span><i class="fa-solid fa-angle-down"></i></span></a> 
+                        <div class="sublist">
+                            <a href="#" class="sublink"><span class="material-icons">
+                                list_alt
+                                </span>  Todo list</a>
+                            <a href="#" class="sublink"> <span class="material-icons">
+                                event
+                                </span> Calender</a>
+                            <a href="#" class="sublink"><span class="material-icons">
+                                notifications_none
+                                </span> Reminders</a>
+                            <a href="#" class="sublink"> <span><i class="fa fa-bullseye" aria-hidden="true"></i></span> Planning</a>
+                        </div>
+                    </li>
+                    <li class="navItem">
+                         <a href="#" class="navlink">Company <span><i class="fa-solid fa-angle-down"></i></span></a> 
+                         <div class="sublist">
+                            <a href="#" class="sublink">History</a>
+                            <a href="#" class="sublink">Our Team</a>
+                            <a href="#" class="sublink">Blog</a>
+                            
+                        </div>
+                    </li>
+                    <li class="navItem"> <a href="#" class="navlink">Career</a> </li>
+                    <li class="navItem"> <a href="#" class="navlink">About</a> </li>
+                    <div class="mobile loginReg">
+                        <a href="" class="login">Login</a>
+                        <a href="" class="register">Register</a>
+                     </div>
+         
+                    
+                </ul>
+                
+            </nav>
+            <div class="desktop loginReg">
+               <a href="" class="login">Login</a>
+               <a href="" class="register">Register</a>
+            </div>
+       </header>
+       <section class="mainSection">
+        <div class="image">
+            <!-- <img src="../assets/images/image-hero-mobile.png" alt="man with laptop"> -->
+
+        </div>
+        <div class="textContent">
+            <h1>Make Remote work</h1>
+            <p>Get your team in sync, no matter your locations.Streamline processes, create team rituals, and watch productivity soar</p>
+            <a href="#" class="cta">Learn more</a>
+        </div>
+
+       </section>
+       <footer class="footer">
+         <img src="../assets/images/client-databiz.svg" alt="databiz" class="databiz">
+         <img src="../assets/images/client-audiophile.svg" alt="audiophile" class="databiz">
+         <img src="../assets/images/client-meet.svg" alt="databiz" class="databiz">
+         <img src="../assets/images/client-maker.svg" alt="databiz" class="databiz">
+       </footer>
+
+    </div>
+</body>
+</html>
